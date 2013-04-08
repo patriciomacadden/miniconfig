@@ -152,7 +152,7 @@ end
 ```
 
 Obviously, this can be done in many different ways and integrated
-with any Ruby application. But, for instance, if you needto access
+with any Ruby application. But, for instance, if you need to access
 the configuration options only in your rails app controllers, define this
 method on the `ApplicationController`. Choose the one that suits best, and
 may the force be with you.
