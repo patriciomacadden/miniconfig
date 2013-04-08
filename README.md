@@ -72,10 +72,10 @@ config = Miniconfig.load 'config/app.yml', 'config/development.yml'
 And then access your application configuration as usual:
 
 ```ruby
-config.app.name # => "Application Name"
+config.app.name # => "Amazing app with great configuration files handling"
 config.app.version # => "0.1.0"
 config.some.cool.setting # => "Some Cool Setting"
-config.some.other.setting # => "Some Other Setting"
+config.some.other.setting # => "Some Other Even Cooler Setting"
 ```
 
 #### Precedence
