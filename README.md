@@ -167,4 +167,4 @@ may the force be with you.
 
 ## TODO
 
-* Do not depend on `activesupport` (a.k.a. implement deep_merge)
+* Do not depend on `activesupport` (a.k.a. implement `deep_merge`)
