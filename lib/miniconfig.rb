@@ -1,3 +1,4 @@
+require 'active_support/core_ext'
 require 'yaml'
 
 require 'miniconfig/version'
@@ -6,7 +7,7 @@ module Miniconfig
   def self.load(*filenames)
     data = {}
     filenames.each do |filename|
-      data.merge! YAML.load(File.read(filename))
+      data.deep_merge! YAML.load(File.read(filename))
     end
     Config.new(data)
   end
