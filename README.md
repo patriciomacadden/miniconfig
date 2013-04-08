@@ -29,13 +29,13 @@ Create your application configuration files in yaml format. For instance:
 ```yaml
 # config/app.yml
 app:
-  name: Application Name
+  name: Amazing app with great configuration files handling
   version: 0.1.0
 some:
   cool:
     setting: Some Cool Setting
-  other:
-    setting: Some Other Setting
+  cooler:
+    setting: Some Other Even Cooler Setting
 ```
 
 Then, load this configuration into an object:
@@ -47,10 +47,10 @@ config = Miniconfig.load 'config/app.yml'
 And access your application configuration:
 
 ```ruby
-config.app.name # => "Application Name"
+config.app.name # => "Amazing app with great configuration files handling"
 config.app.version # => "0.1.0"
 config.some.cool.setting # => "Some Cool Setting"
-config.some.other.setting # => "Some Other Setting"
+config.some.other.setting # => "Some Other Even Cooler Setting"
 ```
 
 ### Loading more than one file
@@ -103,7 +103,7 @@ config.some.setting # => "Some Setting"
 
 ## Integration with Sinatra
 
-The integration with sinatra is pretty straightforward. You must create a
+The integration with sinatra is pretty simple, you must create a
 helper method that creates the config object:
 
 ```ruby
@@ -122,8 +122,8 @@ end
 
 ## Integration with Rails
 
-The integration with sinatra is pretty straightforward. You must create a
-helper method that creates the config object:
+The integration with rails is also pretty straightforward, as in
+the previous example, just create a helper:
 
 ```ruby
 # config/application.rb
@@ -151,9 +151,11 @@ class SomeController < ApplicationController
 end
 ```
 
-Obviously, this can be done in many different ways, for instance, if you need
-to access the configuration options only in your controllers, define this
-method on the `ApplicationController`. Choose the best for your needs.
+Obviously, this can be done in many different ways and integrated
+with any Ruby application. But, for instance, if you needto access
+the configuration options only in your rails app controllers, define this
+method on the `ApplicationController`. Choose the one that suits best, and
+may the force be with you.
 
 ## Contributing
 
