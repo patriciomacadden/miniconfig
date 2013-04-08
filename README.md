@@ -1,6 +1,6 @@
 # Miniconfig
 
-[![Build Status](https://travis-ci.org/patriciomacadden/minitest].png)](https://travis-ci.org/patriciomacadden/miniconfig)
+[![Build Status](https://travis-ci.org/patriciomacadden/minitest.png)](https://travis-ci.org/patriciomacadden/miniconfig)
 [![Code Climate](https://codeclimate.com/github/patriciomacadden/miniconfig.png)](https://codeclimate.com/github/patriciomacadden/miniconfig)
 
 Minimalistic configuration files for your projects.
