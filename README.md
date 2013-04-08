@@ -101,6 +101,60 @@ config.app.version # => "0.1.0"
 config.some.setting # => "Some Setting"
 ```
 
+## Integration with Sinatra
+
+The integration with sinatra is pretty straightforward. You must create a
+helper method that creates the config object:
+
+```ruby
+require 'sinatra'
+
+helpers do
+  def config
+    @config ||= Miniconfig.load 'config/app.yml'
+  end
+end
+
+get '/' do
+  config.app.name
+end
+```
+
+## Integration with Rails
+
+The integration with sinatra is pretty straightforward. You must create a
+helper method that creates the config object:
+
+```ruby
+# config/application.rb
+
+module SomeApplication
+  class Application < Rails::Application
+    # configuration options here
+
+    def miniconfig
+      @miniconfig ||= Miniconfig.load 'config/app.yml'
+    end
+  end
+end
+```
+
+And then access the application instance:
+
+```ruby
+class SomeController < ApplicationController
+  def index
+    config = SomeApplication::Application.instance.miniconfig
+
+    render text: config.app.name
+  end
+end
+```
+
+Obviously, this can be done in many different ways, for instance, if you need
+to access the configuration options only in your controllers, define this
+method on the `ApplicationController`. Choose the best for your needs.
+
 ## Contributing
 
 1. Fork it
