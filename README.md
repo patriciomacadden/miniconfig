@@ -164,3 +164,7 @@ may the force be with you.
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## TODO
+
+* Do not depend on `activesupport` (a.k.a. implement deep_merge)
