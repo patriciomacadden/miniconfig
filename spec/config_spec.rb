@@ -1,14 +1,14 @@
 require 'minitest_helper'
 
 describe Miniconfig::Config do
-  it 'load a single yaml file with 1 level' do
+  it 'loads a single yaml file with 1 level' do
     config = Miniconfig.load fixture_path('config_1.yml')
 
     config.one.must_equal 1
     config.two.must_equal 2
   end
 
-  it 'load a single yaml file with 2 levels' do
+  it 'loads a single yaml file with 2 levels' do
     config = Miniconfig.load fixture_path('config_2.yml')
 
     config.one.one_one.must_equal 1.1
@@ -17,7 +17,7 @@ describe Miniconfig::Config do
     config.two.two_two.must_equal 2.2
   end
 
-  it 'load a single yaml file with 3 levels' do
+  it 'loads a single yaml file with 3 levels' do
     config = Miniconfig.load fixture_path('config_3.yml')
 
     config.one.one_one.must_equal 1.1
