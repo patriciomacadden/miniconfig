@@ -24,7 +24,7 @@ module Miniconfig
         hash.each do |k, v|
           value = v.is_a?(Hash) ? Config.new(v) : v
 
-          self.class.send(:attr_reader, k.to_sym)
+          define_singleton_method(k.to_sym) { value }
           instance_variable_set :"@#{k}", value
         end
       else

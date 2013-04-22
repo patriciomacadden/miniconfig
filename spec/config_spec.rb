@@ -50,4 +50,19 @@ describe Miniconfig::Config do
     config.one.two.two_one.must_equal 2.1
     config.one.two.two_two.must_equal 'Two.Two'
   end
+
+  it 'defines singleton methods in each level' do
+    config = Miniconfig.load fixture_path('config_2.yml')
+
+    config.must_respond_to :one
+    config.must_respond_to :two
+    config.wont_respond_to :one_one
+    config.wont_respond_to :one_two
+    config.wont_respond_to :two_one
+    config.wont_respond_to :two_two
+    config.one.must_respond_to :one_one
+    config.one.must_respond_to :one_two
+    config.two.must_respond_to :two_one
+    config.two.must_respond_to :two_two
+  end
 end
