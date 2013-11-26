@@ -9,26 +9,31 @@ module Miniconfig
     filenames.each do |filename|
       data.deep_merge! YAML.load(File.read(filename))
     end
+
     Config.new(data)
   end
 
   class Config
     def initialize(data = {})
-      build self, data
+      @data = data
+      build
+    end
+
+    def each
+      if block_given?
+        @data.each {|k, v| yield k, v}
+      else
+        @data.to_enum
+      end
     end
 
     private
 
-    def build(object, hash)
-      if hash.is_a? Hash
-        hash.each do |k, v|
-          value = v.is_a?(Hash) ? Config.new(v) : v
+    def build
+      @data.each do |k, v|
+        @data[k] = Config.new(v) if v.is_a?(Hash)
 
-          define_singleton_method(k.to_sym) { value }
-          instance_variable_set :"@#{k}", value
-        end
-      else
-        hash
+        define_singleton_method(k.to_sym) { @data[k] }
       end
     end
   end
